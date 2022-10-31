@@ -38,7 +38,7 @@ class _Experience {
 
   resize() {
     this.camera.resize();
-    // this.world.resize();
+    this.world.resize();
     this.renderer.resize();
   }
 

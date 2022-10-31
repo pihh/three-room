@@ -21,10 +21,10 @@ export default class World extends EventEmitter {
 
     this.resources.on("ready", () => {
       this.environment = new Environment();
-        this.floor = new Floor();
-        this.room = new Room();
-      // this.controls = new Controls();
-      console.log('room ready')
+      this.floor = new Floor();
+      this.room = new Room();
+      this.controls = new Controls();
+   
       this.emit("worldready");
     });
 
@@ -43,11 +43,11 @@ export default class World extends EventEmitter {
     }
   }
 
-  // switchDevice(device) {
-  //     if (this.controls) {
-  //         this.controls.switchDevice(device);
-  //     }
-  // }
+  switchDevice(device) {
+      if (this.controls) {
+          this.controls.switchDevice(device);
+      }
+  }
 
   resize() {}
 

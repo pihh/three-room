@@ -1,1 +1,8 @@
-export default class Controls {}
+export default class Controls {
+
+    constructor(){}
+
+    update(){}
+
+    switchDevice(){}
+}

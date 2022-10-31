@@ -14,7 +14,8 @@ import Time from "./utils/time";
 import Resources from "./utils/resources";
 import World from "./world/world";
 import Theme from './theme'
-
+import Preloader from "./preloader";
+import Controls from "./world/controls.js";
 class _Experience {
   constructor() {
     this.sizes = new Sizes();
@@ -36,6 +37,12 @@ class _Experience {
     this.time.on("update", () => {
       this.update();
     });
+
+    this.preloader = new Preloader();
+
+    this.preloader.on("enablecontrols", () => {
+        this.controls = new Controls();
+    });
   }
 
   resize() {
@@ -45,7 +52,7 @@ class _Experience {
   }
 
   update() {
-    // this.preloader.update();
+    this.preloader.update();
     this.camera.update();
     this.world.update();
     this.renderer.update();

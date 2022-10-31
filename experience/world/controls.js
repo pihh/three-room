@@ -19,27 +19,46 @@ export default class Controls {
             ease: 0.1
         } 
 
-       GSAP.registerPlugin(ScrollTrigger)
-
-       this.setPath()
-    }
-
-
-    setPath(){
-
-        this.timeline = new GSAP.timeline()
-        this.timeline.to(this.room.position,{
-            x:()=>{ return this.sizes.width * 0.0012},
-            scrollTrigger: {
-                trigger:".first-move",
-                markers: true,
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 0.6,
-                invalidateOnRefresh: true
+        this.room.children.forEach((child) => {
+            if (child.type === "RectAreaLight") {
+                this.rectLight = child;
             }
-        })
+        });
+        this.circleFirst = this.experience.world.floor.circleFirst;
+        this.circleSecond = this.experience.world.floor.circleSecond;
+        this.circleThird = this.experience.world.floor.circleThird;
+
+        GSAP.registerPlugin(ScrollTrigger);
+
+        document.querySelector(".page").style.overflow = "visible";
+
+        if (
+            !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+            )
+        ) {
+            this.setSmoothScroll();
+        }
+        this.setScrollTrigger();
+
     }
+
+
+    // setPath(){
+
+    //     this.timeline = new GSAP.timeline()
+    //     this.timeline.to(this.room.position,{
+    //         x:()=>{ return this.sizes.width * 0.0012},
+    //         scrollTrigger: {
+    //             trigger:".first-move",
+    //             markers: true,
+    //             start: "top top",
+    //             end: "bottom bottom",
+    //             scrub: 0.6,
+    //             invalidateOnRefresh: true
+    //         }
+    //     })
+    // }
 
     setupASScroll() {
         // https://github.com/ashthornton/asscroll

@@ -7,14 +7,14 @@ export default class Environment {
     this.experience = Experience;
     this.scene = this.experience.scene;
 
-    this.gui = new GUI({ container: document.querySelector(".hero-main") });
-    this.obj = {
-      colorObj: { r: 0, g: 0, b: 0 },
-      intensity: 3,
-    };
+    // this.gui = new GUI({ container: document.querySelector(".hero-main") });
+    // this.obj = {
+    //   colorObj: { r: 0, g: 0, b: 0 },
+    //   intensity: 3,
+    // };
 
     this.setSunlight();
-    this.setGUI();
+    // this.setGUI();
   }
 
   setGUI() {

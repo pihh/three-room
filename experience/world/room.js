@@ -23,8 +23,6 @@ export default class Room {
             ease: 0.1,
         };
 
-
-
         this.setModel();
         this.setAnimation();
         this.onMouseMove();
@@ -59,8 +57,12 @@ export default class Room {
             }
 
             if (child.name === "Mini_Floor") {
-                child.position.x = -0.289521;
-                child.position.z = 8.83572;
+              console.log(child)
+                // child.position.x = -0.289521;
+                // child.position.z = 8.83572;
+              child.position.x=-7
+              child.position.y=-1
+              child.position.z=15
             }
 
             if (
@@ -73,13 +75,14 @@ export default class Room {
                 child.name === "Flower1" ||
                 child.name === "Flower2"
             ) {
-                child.scale.set(0, 0, 0);
+                // child.scale.set(0, 0, 0);
             }
 
 
 
             if (child.name === "Cube") {
-                child.position.set(0, -1, 0);
+              console.log({child})
+                child.position.set(2, 5, 2);
                 child.rotation.y = Math.PI / 4;
             }
 
@@ -103,7 +106,7 @@ export default class Room {
 
         this.roomChildren["rectLight"] = rectLight;
         this.scene.add(this.actualRoom)
-        this.actualRoom.scale.set(0.5, 0.5, 0.5)
+        this.actualRoom.scale.set(0.11, 0.11, 0.11)
 
     }
     update() {

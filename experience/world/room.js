@@ -8,9 +8,9 @@ export default class Room {
     this.experience = Experience;
     this.scene = this.experience.scene;
     this.time = this.experience.time;
-    // this.resources = this.experience.resources;
-    // this.room = this.resources.items.room;
-    // this.actualRoom = this.room.scene;
+    this.resources = this.experience.resources;
+    this.room = this.resources.items.room;
+    this.actualRoom = this.room.scene;
     // this.roomChildren = {};
 
     // this.lerp = {
@@ -19,8 +19,20 @@ export default class Room {
     //     ease: 0.1,
     // };
 
-    // this.setModel();
+    // const geometry = new THREE.BoxGeometry( 1, 1, 1 )
+    // const material = new THREE.MeshBasicMaterial({color:0xffffff})
+    // const mesh = new THREE.Mesh(geometry,material)
+    // this.scene.add(mesh)
+
+    this.setModel();
     // this.setAnimation();
     // this.onMouseMove();
+  }
+
+  setModel() {
+    this.scene.add(this.actualRoom);
+  }
+  update(){
+
   }
 }

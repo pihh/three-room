@@ -10,7 +10,8 @@ import { EventEmitter } from "events";
 export default class World extends EventEmitter {
   constructor() {
     super();
-    this.experience = new Experience();
+    this.experience = Experience;
+    this.resources = Experience.resources;
     this.sizes = this.experience.sizes;
     this.scene = this.experience.scene;
     this.canvas = this.experience.canvas;
@@ -20,15 +21,16 @@ export default class World extends EventEmitter {
 
     this.resources.on("ready", () => {
       this.environment = new Environment();
-      this.floor = new Floor();
-      this.room = new Room();
+        this.floor = new Floor();
+        this.room = new Room();
       // this.controls = new Controls();
+      console.log('room ready')
       this.emit("worldready");
     });
 
-    this.theme.on("switch", (theme) => {
-      this.switchTheme(theme);
-    });
+    // this.theme.on("switch", (theme) => {
+    //   this.switchTheme(theme);
+    // });
 
     // this.sizes.on("switchdevice", (device) => {
     //     this.switchDevice(device);

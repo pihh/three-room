@@ -6,10 +6,13 @@ import {
   Scene,
   WebGLRenderer,
 } from "three";
+import Assets from "./utils/assets";
 import Camera from "./camera";
 import Renderer from "./renderer";
 import Sizes from "./utils/sizes";
 import Time from "./utils/time";
+import Resources from "./utils/resources";
+import World from "./world/world";
 
 class _Experience {
   constructor() {
@@ -22,6 +25,9 @@ class _Experience {
     this.canvas = canvas;
     this.camera = new Camera();
     this.renderer = new Renderer();
+    this.resources = new Resources(Assets);
+    this.world = new World();
+
     this.sizes.on("resize", () => {
       this.resize();
     });
@@ -39,7 +45,7 @@ class _Experience {
   update() {
     // this.preloader.update();
     this.camera.update();
-    // this.world.update();
+    this.world.update();
     this.renderer.update();
     if (this.controls) {
       this.controls.update();

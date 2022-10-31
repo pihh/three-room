@@ -13,6 +13,7 @@ import Sizes from "./utils/sizes";
 import Time from "./utils/time";
 import Resources from "./utils/resources";
 import World from "./world/world";
+import Theme from './theme'
 
 class _Experience {
   constructor() {
@@ -26,6 +27,7 @@ class _Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.resources = new Resources(Assets);
+    this.theme = new Theme()
     this.world = new World();
 
     this.sizes.on("resize", () => {
